@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= pageTitle %>: <%=__('templates.default.oauthGrant.title')%></title>
+  <title><%= pageTitle %>: <%=__('OAuth2 Запрос доступа')%></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
   <base id="baseUrl" href="<%=baseUrl%>">
@@ -26,13 +26,13 @@
   <div class="login-box">
     <!-- login form -->
     <form method="post" class="sky-form boxed">
-      <header><i class="fa fa-users"></i> <%=__('templates.default.oauthGrant.claim', {app: claimApp})%></header>
+      <header><i class="fa fa-users"></i> <%=__('Приложение %app запрашивает доступ от вашего имени', {app: claimApp})%></header>
       <footer>
         <button name="grant" type="submit" class="btn btn-primary pull-left" style="margin-left:0;">
-          <%=__('templates.default.oauthGrant.grant')%>
+          <%=__('Предоставить доступ')%>
         </button>
         <button name="deny" type="submit" class="btn btn-primary pull-left" style="margin-left:0;">
-          <%=__('templates.default.oauthGrant.deny')%>
+          <%=__('Отклонить')%>
         </button>
       </footer>
     </form>

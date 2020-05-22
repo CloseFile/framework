@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= pageTitle %>: <%=__('templates.default.changePwd.title')%></title>
+  <title><%= pageTitle %>: <%=__('Смена пароля')%></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
   <base id="baseUrl" href="<%=baseUrl%>">
@@ -43,35 +43,35 @@
     <div id="errors" class="alert alert-danger" style="display: none"></div>
 
     <form action="chpwd" method="post" id="reg-form" class="sky-form boxed">
-      <header><i class="fa fa-users"></i> <%=__('templates.default.changePwd.title')%></header>
+      <header><i class="fa fa-users"></i> <%=__('Смена пароля')%></header>
       <fieldset>
         <section>
-          <label class="label"><%=__('templates.default.changePwd.newPwd')%></label>
+          <label class="label"><%=__('Новый пароль')%></label>
           <label class="input">
             <i class="icon-append fa fa-lock"></i>
             <input id="password" type="password" name="password">
             <div class="pwd-error" style="display: none;"></div>
-            <b class="tooltip tooltip-top-right"><%=__('templates.default.changePwd.newPwd')%></b>
+            <b class="tooltip tooltip-top-right"><%=__('Новый пароль')%></b>
           </label>
         </section>
 
         <section>
-          <label class="label"><%=__('templates.default.repeatPwd')%></label>
+          <label class="label"><%=__('Повтор пароля')%></label>
           <label class="input">
             <i class="icon-append fa fa-lock"></i>
             <input id="password2" type="password" name="password2">
             <div class="pwd-error" style="display: none;"></div>
-            <b class="tooltip tooltip-top-right"><%=__('templates.default.repeatPwd')%></b>
+            <b class="tooltip tooltip-top-right"><%=__('Повтор пароля')%></b>
           </label>
         </section>
       </fieldset>
 
       <footer>
         <button id="submit-btn" type="button" class="btn btn-primary pull-left" style="margin-left:0;">
-          <%=__('templates.default.changePwd.changePwd')%>
+          <%=__('Изменить пароль')%>
         </button>
         <div class="forgot-password pull-right">
-          <a class="btn btn-link" href="/"><span class="glyphicon glyphicon-home"></span> <b><%=__('templates.default.home')%></b></a>
+          <a class="btn btn-link" href="/"><span class="glyphicon glyphicon-home"></span> <b><%=__('Домой')%></b></a>
         </div>
       </footer>
     </form>

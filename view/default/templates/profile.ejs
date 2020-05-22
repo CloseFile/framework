@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= pageTitle %>: <%=__('templates.default.profile.title', {name: user.name()})%></title>
+  <title><%= pageTitle %>: <%=__('Профиль пользователя %name', {name: user.name()})%></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0"/>
   <meta name="robots" content="noindex,nofollow">
@@ -35,11 +35,11 @@
     </div>
     <% } %>
     <form id="reg-form" action="profile" method="post" class="sky-form boxed">
-      <header><i class="fa fa-users"></i> <%=__('templates.default.profile.title', {name: user.name()})%></header>
+      <header><i class="fa fa-users"></i> <%=__('Профиль пользователя %name', {name: user.name()})%></header>
       <fieldset>
          <section>
           <label class="label">
-            <%=__('templates.default.profile.language')%>
+            <%=__('Язык')%>
           </label>
           <label class="input">
             <select name="language">
@@ -78,9 +78,9 @@
         <% }) %>
       </fieldset>
       <footer>
-        <button id="authbutton" type="button" class="btn btn-primary pull-right"><%=__('templates.default.profile.save')%></button>
+        <button id="authbutton" type="button" class="btn btn-primary pull-right"><%=__('Сохранить')%></button>
         <div class="forgot-password pull-left">
-          <a href="<%=baseUrl%>"><b><%=__('templates.default.profile.back')%></b></a>
+          <a href="<%=baseUrl%>"><b><%=__('Вернуться в приложение')%></b></a>
         </div>
       </footer>
     </form>
