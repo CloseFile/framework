@@ -33,13 +33,11 @@ const strings = (prefix, id, params, language) => {
       if (systemBase[prefix].hasOwnProperty(id))
         str = systemBase[prefix][id];
     }
-    if (str) {
-      params && Object.keys(params).forEach((p) => {
-        str = str.replace(`%${p}`, params[p]);
-      });
-      return str;
-    }
-    return id;
+    str = str || id;
+    params && Object.keys(params).forEach((p) => {
+      str = str.replace(`%${p}`, params[p]);
+    });
+    return str;
   }
   return '';
 };
