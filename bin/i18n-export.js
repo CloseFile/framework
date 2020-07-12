@@ -5,6 +5,8 @@ const {mergeWith} = require('lodash');
 const {promisify} = require('util');
 const readdirPromise = promisify(fs.readdir);
 const lstatPromise = promisify(fs.lstat);
+const readFilePromise = promisify(fs.readFile);
+const writeFilePromise = promisify(fs.writeFile);
 
 const potTemplateStr = `#
 # IONDV Framework.
@@ -64,7 +66,7 @@ async function walk(dirPath, excludeDirs) {
       const subDirTokens = await walk(files[i].path, excludeDirs);
       tokens = mergeTokens(tokens, subDirTokens);
     } else {
-      const fileContents = await fs.promises.readFile(files[i].path, 'utf8');
+      const fileContents = await readFilePromise(files[i].path, 'utf8');
       const fileTokens = await extractTokens(fileContents, files[i].path);
       tokens = mergeTokens(tokens, fileTokens);
     }
@@ -74,7 +76,7 @@ async function walk(dirPath, excludeDirs) {
 
 async function writePotFile(potFilePath, description, tokens) {
   let contents = potTemplate({tokens});
-  await fs.promises.writeFile(potFilePath, contents);
+  await writeFilePromise(potFilePath, contents);
   return potFilePath;
 }
 
