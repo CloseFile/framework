@@ -411,6 +411,12 @@
           "repo": "ion://kvRepo",
           "log": "ion://sysLog"
         }
+      },
+      "translate": {
+        "module": "core/impl/translation/PotParser",
+        "options": {
+          "log": "ion://sysLog"
+        }
       }
     }
 }

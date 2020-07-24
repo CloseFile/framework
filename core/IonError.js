@@ -27,13 +27,3 @@ IonError.prototype = Object.create(Error.prototype);
 IonError.prototype.constructor = IonError;
 
 module.exports = IonError;
-
-/**
- * @param {{}} base
- * @param {String} [lang]
- */
-module.exports.registerMessages = function (base, lang) {
-  if (base) {
-    strings.registerBase('errors', base, lang);
-  }
-};
