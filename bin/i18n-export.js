@@ -7,6 +7,7 @@ const readdirPromise = promisify(fs.readdir);
 const lstatPromise = promisify(fs.lstat);
 const readFilePromise = promisify(fs.readFile);
 const writeFilePromise = promisify(fs.writeFile);
+const mkdirp = require('mkdirp');
 
 const potTemplateStr = `#
 # IONDV Framework.
@@ -96,13 +97,17 @@ async function opendir(dirPath, excludeDirs) {
 async function run() {
   // core
   const frameworkTokens = await walk(path.resolve(__dirname, '..'), ['node_modules', 'i18n', 'modules', 'applications']);
-  await writePotFile(path.resolve(__dirname, '..', 'i18n', 'framework.pot'), {}, frameworkTokens);
+  const fPotFileDir = path.resolve(__dirname, '..', 'i18n');
+  await mkdirp(fPotFileDir);
+  await writePotFile(path.resolve(fPotFileDir, 'framework.pot'), {}, frameworkTokens);
   // modules
   const modules = await opendir(path.resolve(__dirname, '..', 'modules'), ['node_modules', 'i18n']);
   for (let i = 0; i < modules.length; i++) {
     if (modules[i].isDir) {
       const moduleTokens = await walk(modules[i].path, ['node_modules', 'i18n']);
-      await writePotFile(path.resolve(modules[i].path, 'i18n', `${modules[i].name}.pot`), {}, moduleTokens);
+      const mPotFileDir = path.resolve(modules[i].path, 'i18n');
+      await mkdirp(mPotFileDir);
+      await writePotFile(path.resolve(mPotFileDir, `${modules[i].name}.pot`), {}, moduleTokens);
     }
   }
   // applications
@@ -110,9 +115,13 @@ async function run() {
   for (let i = 0; i < apps.length; i++) {
     if (apps[i].isDir) {
       const appTokens = await walk(apps[i].path, ['node_modules', 'i18n']);
-      await writePotFile(path.resolve(apps[i].path, 'i18n', `${apps[i].name}.pot`), {}, appTokens);
+      const aPotFileDir = path.resolve(apps[i].path, 'i18n');
+      await mkdirp(aPotFileDir);
+      await writePotFile(path.resolve(aPotFileDir, `${apps[i].name}.pot`), {}, appTokens);
     }
   }
+  // finish
+  console.log('done!');
 }
 
 run()
